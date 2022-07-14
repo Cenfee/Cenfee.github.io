@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>贪吃蛇</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content="landscape"/>
+  <meta name="x5-orientation" content="landscape">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.152f2.css"/>
+  <link rel="icon" href="favicon.8de18.ico"/>
+
+  <script src="api.js" charset="utf-8"> </script>
+
+  <script>
+
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+
+    var isDebug = getQueryVariable("debug");
+    if(!isDebug) isDebug = false;
+
+    window.gameData = {};
+    //window.gameData.debug = isDebug;
+
+    window["JSToAndroid"] = true;
+
+
+
+
+
+    function initWebviewData(localAssetStartStrList, localAssetLocalUrlList, notLocalAssetStartStrList) {
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+        prompt(
+            "initWebviewData",
+            JSON.stringify([
+                localAssetStartStrList,
+                localAssetLocalUrlList,
+                notLocalAssetStartStrList
+            ])
+        );
+
+    }
+
+    function showWebview() {
+      if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+        
+        if (!window.JSToAndroid) {
+
+        }
+        else {
+
+            prompt(
+                "showWebview",
+                ""
+            );
+        }
+    }
+
+    function reloadWebview() {
+        if (!window.JSToAndroid) {
+
+        }
+        else {
+            prompt(
+                "reloadWebview",
+                ""
+            );
+        }
+
+    }
+
+    function showBanner()
+    {
+        console.log("showBanner-dddddddddddddddddddd");
+
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+          if (!window.JSToAndroid) {
+
+          }
+          else {
+              prompt(
+                  "showBanner",
+                  ""
+              );
+          }
+    }
+    function hideBanner()
+    {
+        console.log("hideBanner-dddddddddddddddddddd");
+
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+
+          if (!window.JSToAndroid) {
+
+          }
+          else {
+              prompt(
+                  "hideBanner",
+                  ""
+              );
+          }
+    }
+
+    function showInterstitial()
+    {
+        console.log("showInterstitial-dddddddddddddddddddd");
+
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+
+        if (!window.JSToAndroid) {
+
+        }
+        else {
+            prompt(
+                "showInterstitial",
+                ""
+            );
+        }
+    }
+
+    function showRewarded()
+    {
+        console.log("showRewarded-dddddddddddddddddddd");
+
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+        if (!window.JSToAndroid) {
+
+        }
+        else {
+            prompt(
+                "showRewarded",
+                ""
+            );
+        }
+    }
+
+    function showRewardedWithCallBack(callback, closedCallback, failedCallback)
+    {
+        
+
+        console.log("showRewardedWithCallBack-dddddddddddddddddddd");
+        callback();return;
+
+
+        if (!window.JSToAndroid) {
+            console.log("window.JSToAndroid 不存在")
+            return;
+        }
+
+        rewardedCallback = callback;
+        rewardedClosedCallback = closedCallback;
+        rewardedFailedCallback = failedCallback;
+
+
+        if (!window.JSToAndroid) {
+
+        }
+        else {
+            prompt(
+                "showRewarded",
+                ""
+            );
+        }
+    }
+    
+
+    //goooogle
+    window.channelSDK = {};
+    window.channelSDK.initWebviewData = initWebviewData;
+    window.channelSDK.showWebview = showWebview;
+
+    window.channelSDK.reloadWebview = reloadWebview;
+    window.channelSDK.showBanner = showBanner;
+    window.channelSDK.hideBanner = hideBanner;
+    window.channelSDK.showInterstitial = showInterstitial;
+    window.channelSDK.showRewarded = showRewarded;
+
+    //只要用户关闭广告，无论是否观看完广告，rewardedClosedCallback都会调用
+    //观看完广告就会调用rewardedCallback，
+    //猜测，未经测试：只要广告播放完，rewardedCallback就会立即调用，只要用户关闭广告，无论是否观看完广告，rewardedClosedCallback都会调用是在用户手动关闭才会调用）
+    var rewardedCallback = null;
+    var rewardedClosedCallback = null;
+    var rewardedFailedCallback = null;
+    window.channelSDK.showRewardedWithCallBack = showRewardedWithCallBack;
+
+
+    window.channelSDK.ShowInterstitialInDuration = ShowInterstitialInDuration;
+/**
+    window.channelSDK.initWebviewData(
+        [
+            "TestH5/gameIndex.html",
+            "TestH5/res/",
+            "TestH5/src/",
+            "TestH5/cocos2d-js-min.js",
+            "TestH5/main.js",
+            "TestH5/splash.png",
+            "TestH5/style-mobile.css"
+        ],
+        [
+            "gameIndex.html",
+            "res/",
+            "src/",
+            "cocos2d-js-min.js",
+            "main.js",
+            "splash.png",
+            "style-mobile.css"
+        ],
+        //["resource/", "favicon.ico"],
+        [
+
+
+
+        ]
+    );
+
+**/
+
+    function onRewardFailed(){
+
+      console.log("onRewardFailed-dddddddddddddddddddd");
+
+        if(rewardedFailedCallback)  
+        {
+            setTimeout(()=>
+            {
+                rewardedFailedCallback();
+
+                rewardedCallback = null;
+                rewardedClosedCallback = null;
+                rewardedFailedCallback = null;
+            },100);
+
+        }
+        else
+        {
+            rewardedCallback = null;
+            rewardedClosedCallback = null;
+            rewardedFailedCallback = null;
+        }
+
+        
+      }
+
+    function onUserCloseReward(){
+        console.log("onUserCloseReward-dddddddddddddddddddd");
+        
+        if(rewardedClosedCallback) rewardedClosedCallback();
+
+        rewardedCallback = null;
+        rewardedClosedCallback = null;
+        rewardedFailedCallback = null;
+    }
+
+    function onUserEarnedReward(rewardAmount, rewardType) {
+
+      console.log("onUserEarnedReward-dddddddddddddddddddd");
+
+        if(rewardedCallback) rewardedCallback();
+
+        rewardedCallback = null;
+        rewardedClosedCallback = null;
+        rewardedFailedCallback = null;
+
+    }
+
+
+    var BR_lastShowInterstitialTime = 0;
+    function ShowInterstitialInDuration() 
+    {
+        console.log("ShowInterstitialInDuration-dddddddddddddddddddd");
+        var e = (new Date).getTime();
+
+        //6e4 <= e - BR_lastShowInterstitialTime && ( window.channelSDK.showInterstitial(),
+        12e4 <= e - BR_lastShowInterstitialTime && ( window.channelSDK.showInterstitial(),
+        BR_lastShowInterstitialTime = (new Date).getTime())
+    }
+    </script>
+
+
+</head>
+<body>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+
+<script src="src/settings.bd36c.js" charset="utf-8"></script>
+
+<script src="main.71b6a.js" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+(function () {
+    // open web debugger console
+    if (typeof VConsole !== 'undefined') {
+        window.vConsole = new VConsole();
+    }
+
+    var debug = window._CCSettings.debug;
+    var splash = document.getElementById('splash');
+    splash.style.display = 'block';
+
+    function loadScript (moduleName, cb) {
+      function scriptLoaded () {
+          document.body.removeChild(domScript);
+          domScript.removeEventListener('load', scriptLoaded, false);
+          cb && cb();
+      };
+      var domScript = document.createElement('script');
+      domScript.async = true;
+      domScript.src = moduleName;
+      domScript.addEventListener('load', scriptLoaded, false);
+      document.body.appendChild(domScript);
+    }
+
+    loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.ae3d8.js', function () {
+      if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+        loadScript(debug ? 'physics.js' : 'physics-min.js', window.boot);
+      }
+      else {
+        window.boot();
+      }
+    });
+})();
+</script>
+</body>
+</html>
